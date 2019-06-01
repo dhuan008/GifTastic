@@ -162,7 +162,7 @@ $(function () {
     // This function displays the gifs of the button clicked
     $(document).on("click", ".actors", function () {
         actorGifs.actor = ($(this).attr("data-name"));
-        actorGifs.queryURL = "http://api.giphy.com/v1/gifs/search?q=" + actorGifs.actor + "&api_key=" + actorGifs.apiKey + "&limit=" + actorGifs.limit;
+        actorGifs.queryURL = "https://api.giphy.com/v1/gifs/search?q=" + actorGifs.actor + "&api_key=" + actorGifs.apiKey + "&limit=" + actorGifs.limit;
 
         actorGifs.getGifs();
     });
