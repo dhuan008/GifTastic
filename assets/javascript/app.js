@@ -77,25 +77,36 @@ var actorGifs = {
         });
     },
 
-    // 
+    // Generates images and displays them
     makeImages: function (data) {
-        //
+        // Clears existing images
         this.clearImages();
 
+        // Loops through the number of gifs retreived
         for (var i = 0; i < this.gifs.length; i++) {
             var animateImg = data[i].images.fixed_width.url;
             var stillImg = data[i].images.fixed_width_still.url;
             var rating = data[i].rating;
 
-            var image = $("<img>").addClass("m-1 img-thumbnail");
+            // Create a card to store img and text etc
+            var imageCard = $("<div>").addClass("card m-2");
+
+            // Crate the card-body with text
+            var imageText = $("<div>").addClass("card-body").html("<p>Rating: " + rating + "</p>");
+            
+            // Create the image and add properties
+            var image = $("<img>").addClass("card-img-bottom");
             image.attr({
                 "src": stillImg,
                 "data-animate": animateImg,
                 "data-still": stillImg
             });
 
+            // Add image and text to card
+            imageCard.append(imageText).append(image);
+
             // Prepend images to display
-            $("#actors-view").prepend(image);
+            $("#actors-view").prepend(imageCard);
         }
     },
 
