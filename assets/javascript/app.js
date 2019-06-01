@@ -92,8 +92,16 @@ var actorGifs = {
             // Create a card to store img and text etc
             var imageCard = $("<div>").addClass("card m-2");
 
-            // Crate the card-body with text
-            var imageText = $("<div>").addClass("card-body").html("<p>Rating: " + rating + "</p>");
+            // Create the card-body with text
+            var cardBody = $("<div>").addClass("card-body");
+
+            // Create the text rating and add it to the card body
+            var imageText = "<p>Rating: " + rating + "</p>";
+            cardBody.append(imageText);
+
+            // Create a download link
+            var imageDownload = "<a href=" + animateImg + " class='btn btn-success' download>Download</a>";
+            cardBody.prepend(imageDownload);
 
             // Create the image and add properties
             var image = $("<img>").addClass("card-img-bottom gif");
@@ -104,7 +112,7 @@ var actorGifs = {
             });
 
             // Add image and text to card
-            imageCard.append(imageText).append(image);
+            imageCard.append(cardBody).append(image);
 
             // Prepend images to display
             $("#actors-view").prepend(imageCard);
