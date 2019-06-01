@@ -8,7 +8,8 @@ var actorGifs = {
     queryURL: "",
     apiKey: "JKFleoxqzW4K8tAbDzbav9EThXHeILpL",
     limit: 10,
-    gifs: [],
+    gifsArr: [],
+    selectedImage: "",
 
     // ============
     // Methods
@@ -70,10 +71,10 @@ var actorGifs = {
             method: "GET"
         }).then(function (response) {
             // Set gifs equal to the array of gif objects from server
-            actorGifs.gifs = response.data;
-            console.log(actorGifs.gifs);
+            actorGifs.gifsArr = response.data;
+            console.log(actorGifs.gifsArr);
 
-            actorGifs.makeImages(actorGifs.gifs);
+            actorGifs.makeImages(actorGifs.gifsArr);
         });
     },
 
@@ -83,7 +84,7 @@ var actorGifs = {
         this.clearImages();
 
         // Loops through the number of gifs retreived
-        for (var i = 0; i < this.gifs.length; i++) {
+        for (var i = 0; i < this.gifsArr.length; i++) {
             var animateImg = data[i].images.fixed_width.url;
             var stillImg = data[i].images.fixed_width_still.url;
             var rating = data[i].rating;
@@ -93,11 +94,12 @@ var actorGifs = {
 
             // Crate the card-body with text
             var imageText = $("<div>").addClass("card-body").html("<p>Rating: " + rating + "</p>");
-            
+
             // Create the image and add properties
-            var image = $("<img>").addClass("card-img-bottom");
+            var image = $("<img>").addClass("card-img-bottom gif");
             image.attr({
                 "src": stillImg,
+                "data-state": "still",
                 "data-animate": animateImg,
                 "data-still": stillImg
             });
@@ -113,6 +115,29 @@ var actorGifs = {
     // Empty Images displayed
     clearImages: function () {
         $("#actors-view").empty();
+    },
+
+    // Animate or freeze the image
+    animateImage: function () {
+        console.log(this.selectedImage);
+        var state = this.selectedImage.data("state");
+        console.log("state: ", state);
+
+        if (state === "still") {
+            this.selectedImage.attr({
+                "src": this.selectedImage.data("animate"),
+                "data-state": "animate"
+            });
+            this.selectedImage.attr("data-state", "still");
+            console.log(this.selectedImage.state);
+        }
+        else {
+            this.selectedImage.attr({
+                "src": this.selectedImage.data("still"),
+                "data-state": "still"
+            });
+        }
+
     }
 };
 
@@ -140,5 +165,11 @@ $(function () {
         actorGifs.queryURL = "http://api.giphy.com/v1/gifs/search?q=" + actorGifs.actor + "&api_key=" + actorGifs.apiKey + "&limit=" + actorGifs.limit;
 
         actorGifs.getGifs();
+    });
+
+    // This function animates or stops the clicked image
+    $(document).on("click", ".gif", function () {
+        actorGifs.selectedImage = $(this);
+        actorGifs.animateImage();
     });
 });
