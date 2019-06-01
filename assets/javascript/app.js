@@ -14,11 +14,6 @@ var actorGifs = {
     // ============
     // Methods
     // ============
-    // Initializes application display
-    start: function () {
-        this.makeButtons();
-    },
-
     // Generates buttons for actors and displays them
     makeButtons: function () {
         // Delete buttons prior to adding more people
