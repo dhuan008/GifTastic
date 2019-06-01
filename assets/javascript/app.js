@@ -99,7 +99,6 @@ var actorGifs = {
             var image = $("<img>").addClass("card-img-bottom gif");
             image.attr({
                 "src": stillImg,
-                "data-state": "still",
                 "data-animate": animateImg,
                 "data-still": stillImg
             });
@@ -119,25 +118,19 @@ var actorGifs = {
 
     // Animate or freeze the image
     animateImage: function () {
-        console.log(this.selectedImage);
-        var state = this.selectedImage.data("state");
-        console.log("state: ", state);
+        // Saves the current source
+        var state = this.selectedImage.attr("src");
 
-        if (state === "still") {
-            this.selectedImage.attr({
-                "src": this.selectedImage.data("animate"),
-                "data-state": "animate"
-            });
-            this.selectedImage.attr("data-state", "still");
-            console.log(this.selectedImage.state);
+        // Saves the still image
+        var stillImg = this.selectedImage.data("still");
+
+        // If the current src is the still image then switch to animate
+        if (state === stillImg) {
+            this.selectedImage.attr("src", this.selectedImage.data("animate"));
         }
         else {
-            this.selectedImage.attr({
-                "src": this.selectedImage.data("still"),
-                "data-state": "still"
-            });
+            this.selectedImage.attr("src", this.selectedImage.data("still"));
         }
-
     }
 };
 
@@ -164,12 +157,16 @@ $(function () {
         actorGifs.actor = ($(this).attr("data-name"));
         actorGifs.queryURL = "https://api.giphy.com/v1/gifs/search?q=" + actorGifs.actor + "&api_key=" + actorGifs.apiKey + "&limit=" + actorGifs.limit;
 
+        // Gets gifs for the selected button
         actorGifs.getGifs();
     });
 
     // This function animates or stops the clicked image
     $(document).on("click", ".gif", function () {
+        // Sets selectedImage equal to the clicked image
         actorGifs.selectedImage = $(this);
+
+        // Animate or freeze the image
         actorGifs.animateImage();
     });
 });
