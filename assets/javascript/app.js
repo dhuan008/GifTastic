@@ -4,10 +4,11 @@ var actorGifs = {
     // Variables
     // ============
     topics: ["Robert Downey Jr", "Scarlett Johansson", "Emilia Clarke", "Chris Hemsworth"],
-    actor: "Emilia Clarke",
-    queryURL: "http://api.giphy.com/v1/gifs/search?q=emilia+clarke&api_key=JKFleoxqzW4K8tAbDzbav9EThXHeILpL&limit=10",
+    actor: "",
+    queryURL: "",
     apiKey: "JKFleoxqzW4K8tAbDzbav9EThXHeILpL",
     limit: 10,
+    gifs: [],
 
     // ============
     // Methods
@@ -53,7 +54,7 @@ var actorGifs = {
                 console.log("Already exists");
                 return false;
             }
-            // If botton is empty don't add it
+            // If button is empty don't add it
             if (this.actor === "") {
                 console.log("Empty String");
                 return false;
@@ -62,19 +63,45 @@ var actorGifs = {
         return true;
     },
 
-    //
+    // Ajax call - gets the gifs for the person selected
     getGifs: function () {
         $.ajax({
             url: this.queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
-        })
+            // Set gifs equal to the array of gif objects from server
+            actorGifs.gifs = response.data;
+            console.log(actorGifs.gifs);
+
+            actorGifs.makeImages(actorGifs.gifs);
+        });
     },
 
     // 
-    makeGifs: function () {
+    makeImages: function (data) {
         //
+        this.clearImages();
+
+        for (var i = 0; i < this.gifs.length; i++) {
+            var animateImg = data[i].images.fixed_width.url;
+            var stillImg = data[i].images.fixed_width_still.url;
+            var rating = data[i].rating;
+
+            var image = $("<img>").addClass("m-1 img-thumbnail");
+            image.attr({
+                "src": stillImg,
+                "data-animate": animateImg,
+                "data-still": stillImg
+            });
+
+            // Prepend images to display
+            $("#actors-view").prepend(image);
+        }
+    },
+
+    // Empty Images displayed
+    clearImages: function () {
+        $("#actors-view").empty();
     }
 };
 
@@ -100,7 +127,7 @@ $(function () {
     $(document).on("click", ".actors", function () {
         actorGifs.actor = ($(this).attr("data-name"));
         actorGifs.queryURL = "http://api.giphy.com/v1/gifs/search?q=" + actorGifs.actor + "&api_key=" + actorGifs.apiKey + "&limit=" + actorGifs.limit;
-        //console.log(actorGifs.queryURL);
+
         actorGifs.getGifs();
     });
 });
