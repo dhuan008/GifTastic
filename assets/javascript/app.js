@@ -92,10 +92,10 @@ var actorGifs = {
             var cardBody = $("<div>").addClass("card-body");
 
             // Create the text rating
-            var ratingText = "<p>Rating: " + rating + "</p>";
+            var ratingText = "<p><u><b>Rating:</b></u> " + rating + "</p>";
 
             // Create the text 
-            var titleText = "<p>Title: " + title + "</p>";
+            var titleText = "<p><u><b>Title:</b></u> " + title + "</p>";
 
             // Append text to card body
             cardBody.append(titleText).append(ratingText);
