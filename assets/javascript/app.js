@@ -85,7 +85,7 @@ var actorGifs = {
             var rating = data[i].rating;
 
             // Create a card to store img and text etc
-            var imageCard = $("<div>").addClass("card m-2");
+            var imageCard = $("<div>").addClass("card m-4");
 
             // Create the card-body with text
             var cardBody = $("<div>").addClass("card-body");

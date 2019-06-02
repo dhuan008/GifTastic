@@ -20,7 +20,7 @@
 
 <body>
     <!-- Main -->
-    <div class="container">
+    <div class="container text-center">
 
         <!-- Header -->
         <header class="jumbotron text-center">
@@ -28,7 +28,7 @@
         </header>
 
         <!-- Rendered Buttons -->
-        <div class="row">
+        <div class="row mb-3">
             <div class="col" id="buttons-view"></div>
         </div>
 
@@ -37,17 +37,17 @@
             <div class="col">
                 <form id="actor-form">
                     <div class="form-group mb-0">
-                        <label for="actor-input">Enter a name</label>
-                        <input type="text" class="form-control-sm" id="actor-input" placeholder="Name"><br>
+                        <label for="actor-input">Enter a Name</label><br>
+                        <input type="text" class="form-control-sm mb-2" id="actor-input" placeholder="Name"><br>
                     </div>
-                    <button id="add-actor" type="submit" class="btn btn-dark">Submit</button>
+                    <button id="add-actor" type="submit" class="btn btn-outline-secondary btn-sm">Submit</button>
                 </form>
             </div>
         </div>
 
         <!-- Actors Gifs-->
         <div class="row">
-            <div class="cols" id="actors-view"></div>
+            <div class="col" id="actors-view"></div>
         </div>
 
     </div>
