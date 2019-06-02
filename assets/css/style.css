@@ -84,17 +84,18 @@ img {
 
 /* */
 .cloud-text {
-	font-family: 'Coiny', cursive;
+	font-family: cursive;
 	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;	
 	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/clouds.jpg);
 	background-attachment: unset;
 	background-position: 0%;
-	animation: clouds-moving infinite 24s;
+	animation: clouds-moving infinite 48s;
 	animation-fill-mode: forwards;
 	animation-play-state: running;
 	animation-timing-function: linear;
 	font-weight: 900;
+	font-size: 58px;
 }
 @keyframes clouds-moving {
 	0% {
