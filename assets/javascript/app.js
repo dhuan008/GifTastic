@@ -22,7 +22,7 @@ var actorGifs = {
         // Looping through array of topics
         for (var i = 0; i < this.topics.length; i++) {
             var button = $("<button>");
-            button.addClass("btn btn-info m-1 actors");
+            button.addClass("btn btn-ppl m-1 actors");
             button.attr("data-name", this.topics[i]);
             button.text(this.topics[i]);
             $("#buttons-view").append(button);

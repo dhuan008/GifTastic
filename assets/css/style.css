@@ -51,6 +51,16 @@ body {
     background-color: rgba(34, 166, 214, .55);
 }
 
+.btn-ppl {
+    color: #fff;
+    background-color: rgba(0, 151, 151, .8);
+    border-color: rgba(0, 151, 151, .8);
+}
+
+.btn-ppl:hover {
+    background-color: rgba(0, 107, 107, 0.8);
+}
+
 .card {
     width: 20rem;
     display: inline-block;
