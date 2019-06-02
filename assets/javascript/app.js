@@ -46,7 +46,7 @@ var actorGifs = {
         // Loop through topics array
         for (var i = 0; i < this.topics.length; i++) {
             // If button is in topics don't add a duplicate
-            if (this.actor === this.topics[i]) {
+            if (this.actor.toLowerCase === this.topics[i].toLowerCase) {
                 console.log("Already exists");
                 return false;
             }
