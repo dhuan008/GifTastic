@@ -99,7 +99,10 @@ body {
 }
 
 .card p {
-    font-size: 20px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0px;
 }
 
 img {

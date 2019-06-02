@@ -83,6 +83,7 @@ var actorGifs = {
             var animateImg = data[i].images.original.url;
             var stillImg = data[i].images.original_still.url;
             var rating = data[i].rating;
+            var title = data[i].title;
 
             // Create a card to store img and text etc
             var imageCard = $("<div>").addClass("card m-4");
@@ -90,9 +91,14 @@ var actorGifs = {
             // Create the card-body with text
             var cardBody = $("<div>").addClass("card-body");
 
-            // Create the text rating and add it to the card body
-            var imageText = "<p>Rating: " + rating + "</p>";
-            cardBody.append(imageText);
+            // Create the text rating
+            var ratingText = "<p>Rating: " + rating + "</p>";
+
+            // Create the text 
+            var titleText = "<p>Title: " + title + "</p>";
+
+            // Append text to card body
+            cardBody.append(titleText).append(ratingText);
 
             // Create a download link
             //var imageDownload = "<a href=" + animateImg + " class='btn btn-outline-dark' download>Download</a>";
