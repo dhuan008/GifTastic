@@ -81,3 +81,33 @@ img {
             	 0px 8px 13px rgba(0,0,0,0.1),
             	 0px 18px 23px rgba(0,0,0,0.1);
 }
+
+/* */
+.cloud-text {
+	font-family: 'Coiny', cursive;
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;	
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/clouds.jpg);
+	background-attachment: unset;
+	background-position: 0%;
+	animation: clouds-moving infinite 24s;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	animation-timing-function: linear;
+	font-weight: 900;
+}
+@keyframes clouds-moving {
+	0% {
+		background-position: 0%;	
+	}
+	50% {
+		background-position: 100%;	
+	}
+	100% {
+		background-position: 0%;
+	}
+}
+.attribute {
+	position: relative;
+	text-align: center;
+}
