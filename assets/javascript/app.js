@@ -86,37 +86,37 @@ var actorGifs = {
             var title = data[i].title;
 
             // Create a card to store img and text etc
-            var imageCard = $("<div>").addClass("card m-4");
+            var card = $("<div>").addClass("card m-4");
 
-            // Create the card-body with text
+            // Create the card-body
             var cardBody = $("<div>").addClass("card-body");
 
             // Create the text rating
             var ratingText = "<p><u><b>Rating:</b></u> " + rating + "</p>";
 
-            // Create the text 
-            var titleText = "<p><u><b>Title:</b></u> " + title + "</p>";
+            // Create the title
+            //var titleText = "<p><u><b>Title:</b></u> " + title + "</p>";
 
             // Append text to card body
-            cardBody.append(titleText).append(ratingText);
+            cardBody.append(ratingText);
 
             // Create a download link
             //var imageDownload = "<a href=" + animateImg + " class='btn btn-outline-dark' download>Download</a>";
             //cardBody.prepend(imageDownload);
 
             // Create the image and add properties
-            var image = $("<img>").addClass("card-img-bottom gif");
-            image.attr({
+            var cardImage = $("<img>").addClass("card-img-bottom gif");
+            cardImage.attr({
                 "src": stillImg,
                 "data-animate": animateImg,
                 "data-still": stillImg
             });
 
             // Add image and text to card
-            imageCard.append(cardBody).append(image);
+            card.append(cardBody).append(cardImage);
 
             // Prepend images to display
-            $("#actors-view").prepend(imageCard);
+            $("#actors-view").prepend(card);
         }
     },
 
