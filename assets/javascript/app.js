@@ -80,8 +80,8 @@ var actorGifs = {
 
         // Loops through the number of gifs retreived
         for (var i = 0; i < this.gifsArr.length; i++) {
-            var animateImg = data[i].images.fixed_width.url;
-            var stillImg = data[i].images.fixed_width_still.url;
+            var animateImg = data[i].images.fixed_height.url;
+            var stillImg = data[i].images.fixed_height_still.url;
             var rating = data[i].rating;
 
             // Create a card to store img and text etc
@@ -95,8 +95,8 @@ var actorGifs = {
             cardBody.append(imageText);
 
             // Create a download link
-            var imageDownload = "<a href=" + animateImg + " class='btn btn-outline-dark' download>Download</a>";
-            cardBody.prepend(imageDownload);
+            //var imageDownload = "<a href=" + animateImg + " class='btn btn-outline-dark' download>Download</a>";
+            //cardBody.prepend(imageDownload);
 
             // Create the image and add properties
             var image = $("<img>").addClass("card-img-bottom gif");
@@ -127,7 +127,7 @@ var actorGifs = {
         // Saves the still image
         var stillImg = this.selectedImage.data("still");
 
-        // If the current src is the still image then switch to animate
+        // If the current src is the still image then switch to animate else switch to still
         if (state === stillImg) {
             this.selectedImage.attr("src", this.selectedImage.data("animate"));
         }
