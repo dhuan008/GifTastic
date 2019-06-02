@@ -60,7 +60,7 @@ body {
 	animation-fill-mode: forwards;
 	animation-play-state: running;
 	animation-timing-function: linear;
-	font-weight: 900;
+	font-weight: bold;
 	font-size: 55px;
 }
 @keyframes clouds-moving {
