@@ -95,7 +95,7 @@ var actorGifs = {
             cardBody.append(imageText);
 
             // Create a download link
-            var imageDownload = "<a href=" + animateImg + " class='btn btn-success' download>Download</a>";
+            var imageDownload = "<a href=" + animateImg + " class='btn btn-outline-dark' download>Download</a>";
             cardBody.prepend(imageDownload);
 
             // Create the image and add properties
