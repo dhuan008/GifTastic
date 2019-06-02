@@ -8,6 +8,9 @@ body {
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
+	font-family: 'Ranga', cursive;
+	font-weight: bold;
+	font-size: 28px;
 }
 
 @-webkit-keyframes Gradient {
@@ -48,7 +51,6 @@ body {
 
 /* Cloud text effect */
 .cloud-text {
-	font-family: cursive;
 	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;	
 	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/clouds.jpg);
@@ -59,7 +61,7 @@ body {
 	animation-play-state: running;
 	animation-timing-function: linear;
 	font-weight: 900;
-	font-size: 58px;
+	font-size: 55px;
 }
 @keyframes clouds-moving {
 	0% {
@@ -72,10 +74,6 @@ body {
 		background-position: 0%;
 	}
 }
-.attribute {
-	position: relative;
-	text-align: center;
-}
 
 
 /* */
@@ -86,7 +84,8 @@ body {
 .btn-ppl {
     color: #fff;
     background-color: rgba(0, 151, 151, .8);
-    border-color: rgba(0, 151, 151, .8);
+	border-color: rgba(0, 151, 151, .8);
+	font-size: 24px;
 }
 
 .btn-ppl:hover {
