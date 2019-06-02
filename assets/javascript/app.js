@@ -80,8 +80,8 @@ var actorGifs = {
 
         // Loops through the number of gifs retreived
         for (var i = 0; i < this.gifsArr.length; i++) {
-            var animateImg = data[i].images.fixed_height.url;
-            var stillImg = data[i].images.fixed_height_still.url;
+            var animateImg = data[i].images.original.url;
+            var stillImg = data[i].images.original_still.url;
             var rating = data[i].rating;
 
             // Create a card to store img and text etc

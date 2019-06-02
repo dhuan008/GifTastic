@@ -1,5 +1,11 @@
 /* */
 .card {
-    width: 18rem;
+    width: 20rem;
+    /*height: 18rem;*/
     display: inline-block;
+}
+
+img {
+    height: 200px;
+    object-fit: cover;
 }
